@@ -1,22 +1,21 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Editor } from 'primeng/editor';
+import { EditorModule } from 'primeng/editor';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, Editor],
+  standalone: true,
+  imports: [FormsModule,EditorModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'editor';
-  text: string | undefined;
+export class AppComponent  {
+ text: string | undefined;
+ @ViewChild('editorContainer') editorContainer!: ElementRef;
 
-  @ViewChild('el') editor!: ElementRef;
+ save(){
+   this.editorContainer.nativeElement.innerHTML = this.text
+   console.log(this.editorContainer.nativeElement.innerHTML);
 
-  click() {
-    this.editor.nativeElement.innerHTML = this.text;
-  }
+ }
 }
-

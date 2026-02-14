@@ -1,11 +1,13 @@
-<div class="card">
-    <p-editor [(ngModel)]="text" [style]="{ height: '320px' }" />
+<div class="w-[75%] mx-auto mt-10">
+     <div class="card">
+            <p-editor dir="auto" [(ngModel)]="text" [style]="{ height: '320px' }" />
+        </div>
+
+        <button (click)="save()" class="bg-red-800 text-white p-2 rounded-2xl mx-auto mt-2 block cursor-pointer">Save</button>
+
+
+        <div class="ql-snow">
+  <div class="ql-editor" #editorContainer ></div>
 </div>
 
-<div class="flex justify-center mt-4">
-  <button (click)="click()" class="p-2 bg-amber-400 rounded-2xl text-white cursor-pointer">click</button>
-</div>
-
-<div class="editor-wrapper">
-  <div class="ql-editor" [innerHTML]="text"></div>
 </div>
